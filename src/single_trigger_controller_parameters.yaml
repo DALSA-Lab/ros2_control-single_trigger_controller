@@ -1,0 +1,68 @@
+single_trigger_controller_parameters:
+  gpios: {
+    type: string_array,
+    description: "List of gpios",
+    read_only: true,
+    default_value: [],
+    validation: {
+      unique<>: null
+    }
+  }
+
+  joints: {
+    type: string_array,
+    description: "List of joints",
+    read_only: true,
+    default_value: [],
+    validation: {
+      unique<>: null
+    }
+  }
+
+  command_interfaces:
+    gpios:
+      __map_gpios:
+        interfaces: {
+          type: string_array,
+          description: "List of command interfaces for each gpio.",
+          read_only: true,
+          default_value: [],
+          validation: {
+            unique<>: null
+          }
+        }
+    joints:
+      __map_joints:
+        interfaces: {
+          type: string_array,
+          description: "List of command interfaces for each joint.",
+          read_only: true,
+          default_value: [],
+          validation: {
+            unique<>: null
+          }
+        }
+
+  state_interfaces:
+    gpios:
+      __map_gpios:
+        interfaces: {
+          type: string_array,
+          description: "List of state interfaces for each gpio. If empty no states are broadcasted",
+          read_only: true,
+          default_value: [],
+          validation: {
+            unique<>: null
+          }
+        }
+    joints:
+      __map_joints:
+        interfaces: {
+          type: string_array,
+          description: "List of state interfaces for each joint. If empty no states are broadcasted",
+          read_only: true,
+          default_value: [],
+          validation: {
+            unique<>: null
+          }
+        }
