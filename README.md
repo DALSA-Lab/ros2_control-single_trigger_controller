@@ -101,7 +101,7 @@ if(command){
 ```
 
 ## Dependencies
-This controller has been tested with ROS2 Jazyy and ROS2_control Jazzy.
+This controller has been tested with ROS2 Jazzy and ROS2_control Jazzy.
 
 ## Install
 Clone the repository into the ros2 workspace and build.
