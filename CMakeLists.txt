@@ -16,17 +16,17 @@ find_package(realtime_tools REQUIRED)
 find_package(generate_parameter_library REQUIRED)
 find_package(control_msgs REQUIRED)
 
-generate_parameter_library(single_trigger_controller_parameters
-  src/single_trigger_controller_parameters.yaml
+generate_parameter_library(${PROJECT_NAME}_parameters
+  src/${PROJECT_NAME}_parameters.yaml
 )
 
-add_library(single_trigger_controller
+add_library(${PROJECT_NAME}
   SHARED
-  src/single_trigger_controller.cpp
+  src/${PROJECT_NAME}.cpp
 )
-target_include_directories(single_trigger_controller PRIVATE include)
-target_link_libraries(single_trigger_controller PUBLIC
-                      single_trigger_controller_parameters
+target_include_directories(${PROJECT_NAME} PRIVATE include)
+target_link_libraries(${PROJECT_NAME} PUBLIC
+                      ${PROJECT_NAME}_parameters
                       controller_interface::controller_interface
                       hardware_interface::hardware_interface
                       pluginlib::pluginlib
@@ -36,7 +36,7 @@ target_link_libraries(single_trigger_controller PUBLIC
                       ${control_msgs_TARGETS}
                       ${builtin_interfaces_TARGETS})
 
-pluginlib_export_plugin_description_file(controller_interface single_trigger_controller_plugin.xml)
+pluginlib_export_plugin_description_file(controller_interface ${PROJECT_NAME}_plugin.xml)
 
 install(
   DIRECTORY include/
@@ -45,7 +45,7 @@ install(
 
 install(
   TARGETS
-  single_trigger_controller
+  ${PROJECT_NAME}
   RUNTIME DESTINATION bin
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
@@ -63,6 +63,6 @@ ament_export_include_directories(
   include
 )
 ament_export_libraries(
-  single_trigger_controller
+  ${PROJECT_NAME}
 )
 ament_package()
