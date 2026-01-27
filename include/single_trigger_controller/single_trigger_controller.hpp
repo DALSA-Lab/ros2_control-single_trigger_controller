@@ -148,6 +148,7 @@ namespace single_trigger_controller
      * @brief Initializes the state message #state_msg_ with NaN values for each configured state interface.
      *
      * For example the state message could look like this: \n
+     * ```
      * {
      *  header:
      *  {
@@ -166,7 +167,7 @@ namespace single_trigger_controller
      *    }
      *  ]
      * }
-     *
+     * ```
      */
     void initialize_state_msg();
 
@@ -260,8 +261,9 @@ namespace single_trigger_controller
      * @brief vector of string holding all command interface names as configured from the parameters.
      *
      * Looks like this for example: \n
+     * ```
      * ['j1/home', 'gpio1/ao0', 'gpio1/ao1']
-     *
+     * ```
      */
     InterfacesNames command_interface_types_;
 
@@ -269,8 +271,9 @@ namespace single_trigger_controller
      * @brief vector of string holding all state interface names as configured from the parameters.
      *
      * Looks like this for example: \n
+     * ```
      * ['j1/home', 'gpio1/ai0', 'gpio1/ai1']
-     *
+     * ```
      */
     InterfacesNames state_interface_types_;
 
