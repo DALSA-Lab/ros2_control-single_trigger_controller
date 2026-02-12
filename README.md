@@ -1,4 +1,5 @@
-# A general purpose controller which can be used to trigger command interfaces.
+# Single Trigger Controller
+*A general purpose controller which can be used to trigger command interfaces.*
 
 This controller is a derivative of the ros2_control [GpioCommandController](https://control.ros.org/master/doc/ros2_controllers/gpio_controllers/doc/userdoc.html).
 
